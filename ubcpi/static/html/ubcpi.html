@@ -19,18 +19,19 @@
             </div>
 
             <a name="reflecting"></a>
-            <span id="reflect" ng-if="rc.status() == rc.ALL_STATUS.ANSWERED">
+            <div role="group" aria-label="Progress Indicator">
+                <span id="reflect" ng-if="rc.status() == rc.ALL_STATUS.ANSWERED">
+                    <ul style="background:#f8f8f8;border:2px solid #ddd;margin:1em 0;padding-top:.3em;text-transform:uppercase;">
+                        <li style="display:inline-block;width:30%;text-align:center;color:#aaa;padding-top:.3em"><span class="fa fa-check-circle" aria-hidden="true" style="font-size:1.4em;"></span></span><br>Answer</li>
+                        <span class="fa fa-angle-double-right" style="color:#ddd;vertical-align:15%;font-size:2.2em"></span>
+                        <li style="display:inline-block;width:30%;text-align:center;font-weight:bold;color:#333;padding-top:.3em;text-transform:uppercase;"><span class="fa fa-arrow-circle-down" aria-hidden="true" style="font-size:1.4em;"></span><br>Reflection</li>
+                        <span class="fa fa-angle-double-right" style="color:#ddd;vertical-align:15%;font-size:2.2em"></span>
+                        <li style="display:inline-block;width:30%;text-align:center;color:#aaa"><span class="fa fa-circle-o" aria-hidden="true" style="font-size:1.4em;"></span><br>Results</li>
+                    </ul>
+                </span>
+            </div>
 
-                <ul style="background:#f8f8f8;border:2px solid #ddd;margin:1em 0;padding-top:.3em;text-transform:uppercase;">
-                    <li style="display:inline-block;width:30%;text-align:center;color:#aaa;padding-top:.3em"><span class="fa fa-check-circle" style="font-size:1.4em;"></span></span><br>Answer</li>
-                    <span class="fa fa-angle-double-right" style="color:#ddd;vertical-align:15%;font-size:2.2em"></span>
-                    <li style="display:inline-block;width:30%;text-align:center;font-weight:bold;color:#333;padding-top:.3em;text-transform:uppercase;"><span class="fa fa-arrow-circle-down" style="font-size:1.4em;"></span><br>Reflection</li>
-                    <span class="fa fa-angle-double-right" style="color:#ddd;vertical-align:15%;font-size:2.2em"></span>
-                    <li style="display:inline-block;width:30%;text-align:center;color:#aaa"><span class="fa fa-circle-o" style="font-size:1.4em;"></span><br>Results</li>
-                </ul>
-            </span>
-
-            <div class="others-responses" id="others-responses" data-ng-if="rc.status() == rc.ALL_STATUS.ANSWERED" tabindex="-1" role="region" aria-labelledby="others-respoonses-head">
+            <div class="others-responses" id="others-responses" data-ng-if="rc.status() == rc.ALL_STATUS.ANSWERED" tabindex="-1" role="region" aria-labelledby="ubcpi-other-answers-head">
 
                 <h3 id="ubcpi-other-answers-head">Step 2) READ OTHER STUDENT ANSWERS</h3>
                 <p class="ubcpi-other-answers-instructions">These are samples of other student answers for this question. Read them and then compare with your answer below.</p>
@@ -50,16 +51,18 @@
 
             </div><!-- .others-responses -->
 
-            <span id="answer" ng-if="rc.status() == rc.ALL_STATUS.NEW">
+            <div role="group" aria-label="Progress Indicator">
+                <span id="answer" ng-if="rc.status() == rc.ALL_STATUS.NEW">
 
-                <ul style="background:#f8f8f8;border:2px solid #ddd;margin:1em 0;padding-top:.3em;text-transform:uppercase;">
-                  <li style="display:inline-block;width:30%;text-align:center;font-weight:bold;color:#333;padding-top:.3em"><span class="fa fa-arrow-circle-down" style="font-size:1.4em;"></span></span><br>Answer</li>
-                  <span class="fa fa-angle-double-right" style="color:#ddd;vertical-align:15%;font-size:2.2em"></span>
-                  <li style="display:inline-block;width:30%;text-align:center;color:#aaa;padding-top:.3em;text-transform:uppercase;"><span class="fa fa-circle-o" style="font-size:1.4em;"></span><br>Reflection</li>
-                  <span class="fa fa-angle-double-right" style="color:#ddd;vertical-align:15%;font-size:2.2em"></span>
-                  <li style="display:inline-block;width:30%;text-align:center;color:#aaa"><span class="fa fa-circle-o" style="font-size:1.4em;"></span><br>Results</li>
-                </ul>
-            </span>
+                    <ul style="background:#f8f8f8;border:2px solid #ddd;margin:1em 0;padding-top:.3em;text-transform:uppercase;">
+                      <li style="display:inline-block;width:30%;text-align:center;font-weight:bold;color:#333;padding-top:.3em"><span class="fa fa-arrow-circle-down" aria-hidden="true" style="font-size:1.4em;"></span></span><br>Answer</li>
+                      <span class="fa fa-angle-double-right" style="color:#ddd;vertical-align:15%;font-size:2.2em"></span>
+                      <li style="display:inline-block;width:30%;text-align:center;color:#aaa;padding-top:.3em;text-transform:uppercase;"><span class="fa fa-circle-o" aria-hidden="true" style="font-size:1.4em;"></span><br>Reflection</li>
+                      <span class="fa fa-angle-double-right" style="color:#ddd;vertical-align:15%;font-size:2.2em"></span>
+                      <li style="display:inline-block;width:30%;text-align:center;color:#aaa"><span class="fa fa-circle-o" aria-hidden="true" style="font-size:1.4em;"></span><br>Results</li>
+                    </ul>
+                </span>
+            </div>
             <form name="answerForm" class="choicegroup your-answer-and-rationale">
 
                 <fieldset>
@@ -152,17 +155,18 @@
             <img ng-src="{{question_text.image_url}}" id="question-image" alt="{{question_text.image_alt}}" ng-if="question_text.image_position == 'below' && question_text.image_url" />
             </div>
 
-            <span id="test" ng-if="rc.status() == rc.ALL_STATUS.REVISED">
-                <ul style="background:#f8f8f8;border:2px solid #ddd;margin:1em 0;padding-top:.3em;text-transform:uppercase;">
-                    <li style="display:inline-block;width:30%;text-align:center;color:#aaa;padding-top:.3em"><span class="fa fa-check-circle" style="font-size:1.4em;"></span></span><br>Answer</li>
-                    <span class="fa fa-angle-double-right" style="color:#ddd;vertical-align:15%;font-size:2.2em"></span>
-                    <li style="display:inline-block;width:30%;text-align:center;color:#aaa;padding-top:.3em;text-transform:uppercase;"><span class="fa fa-check-circle" style="font-size:1.4em;"></span><br>Reflection</li>
-                    <span class="fa fa-angle-double-right" style="color:#ddd;vertical-align:15%;font-size:2.2em"></span>
-                    <li style="display:inline-block;width:30%;text-align:center;font-weight:bold;color:#333"><span class="fa fa-arrow-circle-down" style="font-size:1.4em;"></span><br>Results</li>
-                </ul>
+            <div role="group" aria-label="Progress Indicator">
+                <span id="test" ng-if="rc.status() == rc.ALL_STATUS.REVISED">
+                    <ul style="background:#f8f8f8;border:2px solid #ddd;margin:1em 0;padding-top:.3em;text-transform:uppercase;">
+                        <li style="display:inline-block;width:30%;text-align:center;color:#aaa;padding-top:.3em"><span class="fa fa-check-circle" aria-hidden="true" style="font-size:1.4em;"></span></span><br>Answer</li>
+                        <span class="fa fa-angle-double-right" style="color:#ddd;vertical-align:15%;font-size:2.2em"></span>
+                        <li style="display:inline-block;width:30%;text-align:center;color:#aaa;padding-top:.3em;text-transform:uppercase;"><span class="fa fa-check-circle" aria-hidden="true" style="font-size:1.4em;"></span><br>Reflection</li>
+                        <span class="fa fa-angle-double-right" style="color:#ddd;vertical-align:15%;font-size:2.2em"></span>
+                        <li style="display:inline-block;width:30%;text-align:center;font-weight:bold;color:#333"><span class="fa fa-arrow-circle-down" aria-hidden="true" style="font-size:1.4em;"></span><br>Results</li>
+                    </ul>
 
-            </span>
-
+                </span>
+            </div>
             <section class="solution-span correct-answer-and-rationale" tabindex="-1" aria-labelledby="correct-option-head" role="region">
 
                 <div class="detailed-solution" id="detailed-solution">
